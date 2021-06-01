@@ -26,7 +26,7 @@ export function parseCoffeeShops(csvPath: string): CoffeeShop[] {
   const csvBuffer = fs.readFileSync(csvPath);
   const records = parse(csvBuffer) as [string, string, string][];
 
-  return records.map(([name, xString, yString], index) => {
+  return records.map(([name, xString, yString]) => {
     const position = createPosition(xString, yString);
     return { name, position };
   });

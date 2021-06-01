@@ -1,16 +1,11 @@
-import {
-  getDistance,
-  parseCoffeeShops,
-  Position,
-  createPosition,
-} from "./util";
+import { getDistance, parseCoffeeShops, createPosition } from "./util";
 import path from "path";
 
 const [userXString, userYString, csvLocation] = process.argv.slice(2);
 if (!userXString || !userYString || !csvLocation)
   throw new Error("Invalid input");
 
-const userPosition: Position = createPosition(userXString, userYString);
+const userPosition = createPosition(userXString, userYString);
 const coffeeShops = parseCoffeeShops(path.resolve(process.cwd(), csvLocation));
 
 coffeeShops
