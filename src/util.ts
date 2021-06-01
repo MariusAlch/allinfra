@@ -2,7 +2,7 @@ import parse from "csv-parse/lib/sync";
 import fs from "fs";
 
 export type Position = [number, number];
-export interface CofeeShop {
+export interface CoffeeShop {
   name: string;
   position: Position;
 }
@@ -22,7 +22,7 @@ export function getDistance([x1, y1]: Position, [x2, y2]: Position) {
   return Math.sqrt(x * x + y * y);
 }
 
-export function parseCoffeeShops(csvPath: string): CofeeShop[] {
+export function parseCoffeeShops(csvPath: string): CoffeeShop[] {
   const csvBuffer = fs.readFileSync(csvPath);
   const records = parse(csvBuffer) as [string, string, string][];
 
